@@ -1,2 +1,2 @@
-# Restaurant
-project
+# Restaurant application
+project description
