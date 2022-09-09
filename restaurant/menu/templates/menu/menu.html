@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- ùrequired meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <title>Restaurant</title>
+  </head>
+  <body>
+    <nav class="navbar bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          {% load static %}
+          <img src="{% static 'menu/logo.png' %}" alt="" width="30" height="24" class="d-inline-block align-text-top">
+          Restaurant
+        </a>
+      </div>
+    </nav>
+    <div class="container my-5 text-center" style="max-width: 580px;">
+      <h1>Piatti per tutti i gusti</h1>
+      <p class="lead">
+        Concediti un pasto ricco e saporito, 
+        è provato che fa bene alla salute ;)
+      </p>
+      <button type="button" class="btn btn-primary">Ordina Subito</button>
+      <button type="button" class="btn btn-secondary">Contattaci</button>    
+    </div>
+
+    <div class="container">
+      <div class="row">
+        {% for dish in dishes %}
+        <div class="col-sm">
+          <div class="card" style="width: 18rem;">
+            <img src="{{ dish.image.url }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ dish.name }}</h5>
+              <p class="card-text">{{ dish.description }}</p>
+              <p class="card-text">€ {{ dish.price }}</p>
+              <a href="#" class="btn btn-primary">Acquista</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>    
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+    
+  </body>
+</html>
